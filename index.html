@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Custom Craigslist</title>
+    <title>notocode.com - your simple no code directory - </title>
     <link rel="stylesheet" href="styles.css">
     <!-- Firebase SDK snippet from your project settings -->
     <script>
@@ -42,11 +42,24 @@
         <button type="submit">Add Row</button>
     </form>
 
+
     <table id="dataTable">
         <tr>
-            <th>Title</th>
-            <th>Category</th>
-            <th>Description</th>
+            <th>
+                Title
+                <br>
+                <input type="text" id="titleFilter" onkeyup="filterTable(0, 'titleFilter')">
+            </th>
+            <th>
+                Category
+                <br>
+                <input type="text" id="categoryFilter" onkeyup="filterTable(1, 'categoryFilter')">
+            </th>
+            <th>
+                Description
+                <br>
+                <input type="text" id="descriptionFilter" onkeyup="filterTable(2, 'descriptionFilter')">
+            </th>
         </tr>
     </table>
 
