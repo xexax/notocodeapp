@@ -73,23 +73,7 @@ document.getElementById('postForm').addEventListener('submit', async function (e
 loadFromFirestore();
 
 // Add the filterTable function
-function filterTable(columnIndex, filterInputId) {
-    const filter = document.getElementById(filterInputId).value.toUpperCase();
-    const table = document.getElementById("dataTable");
-    const rows = table.getElementsByTagName("tr");
 
-    for (let i = 1; i < rows.length; i++) {
-        const cell = rows[i].getElementsByTagName("td")[columnIndex];
-        if (cell) {
-            const cellText = cell.textContent || cell.innerText;
-            if (cellText.toUpperCase().indexOf(filter) > -1) {
-                rows[i].style.display = "";
-            } else {
-                rows[i].style.display = "none";
-            }
-        }
-    }
-}
 
 // Add event listeners for filter inputs
 document.getElementById('titleFilter').addEventListener('keyup', () => filterTable(0, 'titleFilter'));
