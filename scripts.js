@@ -1,3 +1,7 @@
+// Import Firebase modules using version 9 syntax
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js";
+import { getFirestore, collection, addDoc, query, orderBy, getDocs, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js";
+
 // Initialize Firebase and Firestore
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -9,14 +13,16 @@ const firebaseConfig = {
     messagingSenderId: "698861799572",
     appId: "1:698861799572:web:5d12e14fdb057fe0b90c81",
     measurementId: "G-P6HQBP84L4"
-      // Replace this object with your Firebase project configuration
-};
-firebase.initializeApp(firebaseConfig);
-const db = firebase.firestore();
+  };
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 
 // Function to load data from Firestore
 async function loadFromFirestore() {
-    const querySnapshot = await db.collection('dataTableData').orderBy('timestamp').get();
+    const dataTableData = collection(db, 'dataTableData');
+    const dataTableDataQuery = query(dataTableData, orderBy('timestamp'));
+    const querySnapshot = await getDocs(dataTableDataQuery);
+    
     const table = document.getElementById('dataTable');
     querySnapshot.forEach(doc => {
         const rowData = doc.data();
@@ -55,11 +61,11 @@ document.getElementById('postForm').addEventListener('submit', async function (e
     document.getElementById('description').value = '';
 
     // Save data to Firestore
-    await db.collection('dataTableData').add({
+    await addDoc(collection(db, 'dataTableData'), {
         title,
         category,
         description,
-        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+        timestamp: serverTimestamp(),
     });
 });
 
