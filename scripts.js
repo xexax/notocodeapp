@@ -91,6 +91,12 @@ function filterTable(columnIndex, filterInputId) {
     }
 }
 
+// Add event listeners for filter inputs
+document.getElementById('titleFilter').addEventListener('keyup', () => filterTable(0, 'titleFilter'));
+document.getElementById('categoryFilter').addEventListener('keyup', () => filterTable(1, 'categoryFilter'));
+document.getElementById('descriptionFilter').addEventListener('keyup', () => filterTable(2, 'descriptionFilter'));
+
+
 
 
 
