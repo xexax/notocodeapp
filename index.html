@@ -9,7 +9,29 @@
 </head>
 <body>
     <h1>Add and Edit Rows</h1>
-    
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+          apiKey: "AIzaSyBOmvWrerUzWrxHA6sJZRbnueG0SMBDu88",
+          authDomain: "notocode-db4ef.firebaseapp.com",
+          projectId: "notocode-db4ef",
+          storageBucket: "notocode-db4ef.appspot.com",
+          messagingSenderId: "698861799572",
+          appId: "1:698861799572:web:5d12e14fdb057fe0b90c81",
+          measurementId: "G-P6HQBP84L4"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+      </script>
     <!-- Add this code after the Add New Row button -->
 <form id="postForm">
     <label for="title">Title:</label>
@@ -42,28 +64,6 @@
     </table>
     <script src="scripts.js"></script>
 
-    <script type="module">
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-analytics.js";
-        // TODO: Add SDKs for Firebase products that you want to use
-        // https://firebase.google.com/docs/web/setup#available-libraries
-      
-        // Your web app's Firebase configuration
-        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-        const firebaseConfig = {
-          apiKey: "AIzaSyBOmvWrerUzWrxHA6sJZRbnueG0SMBDu88",
-          authDomain: "notocode-db4ef.firebaseapp.com",
-          projectId: "notocode-db4ef",
-          storageBucket: "notocode-db4ef.appspot.com",
-          messagingSenderId: "698861799572",
-          appId: "1:698861799572:web:5d12e14fdb057fe0b90c81",
-          measurementId: "G-P6HQBP84L4"
-        };
-      
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
-      </script>
+
 </body>
 </html>
